@@ -342,7 +342,7 @@ int main()
 {  std::ifstream fin("sala.in");
    int k;
    fin>>k;
-   Aparat aparate[50];
+   Aparat aparate[100];
    std::string numeAparat, scop;
    int dificultate;
    for (int i=0;i<k;i++){
@@ -353,8 +353,8 @@ int main()
    for (int i=0;i<k;i++){
     std::cout<<aparate[i]<<std::endl;
    }
-   Client clienti[5];
-   Rezervare rezervari[3];
+   Client clienti[100];
+   Rezervare rezervari[100];
    int n;
    fin>>n;
    std::string nume, prenume, email, numarTelefon;
