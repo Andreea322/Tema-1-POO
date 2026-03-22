@@ -1,5 +1,6 @@
 # Tema-1-POO
   Se considera o sala de gimnastica care gestionează clienți, aparate si rezervări.Astfel,se definesc următoarele clase:
+  
 1.Aparat-cu parametrii: nume,scop,nivelDificultate(0-5);
 
 2.Client-cu parametrii:nume, prenume, email,numarTelefon, vârstă;
