@@ -11,4 +11,4 @@
   
   Cerinta:
 
-Sa se afiseze aparatele disponibile din sala, scopul si nivelul de dificultate al acestora si pentru fiecare client citit să se verifice dacă acesta are o rezervare activă.O rezervare este considerată activă dacă numele și prenumele din rezervare coincid cu cele ale clientului.
+ Sa se afiseze aparatele disponibile din sala, scopul si nivelul de dificultate al acestora si pentru fiecare client citit să se verifice dacă acesta are o rezervare activă.O rezervare este considerată activă dacă numele și prenumele din rezervare coincid cu cele ale clientului.
