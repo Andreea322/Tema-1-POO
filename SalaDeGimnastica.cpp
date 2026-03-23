@@ -18,7 +18,7 @@ class Aparat{
     ~Aparat(){
 
     }; //destructor
-    Aparat& operator=(const Aparat& ob); //operator de asignare
+    Aparat& operator=(const Aparat& ob); //operator de mutare
     friend std::ostream& operator<<(std::ostream& out, const Aparat& a); //operator de afisare
     //getteri:
     std::string getNume() const;
@@ -90,7 +90,7 @@ class Client{
     ~Client(){
 
     }; //destructor
-    Client& operator=(const Client& ob); //operator de asignare
+    Client& operator=(const Client& ob); //operator de mutare
     friend std::ostream& operator<<(std::ostream& out, const Client& c); //operator de afisare
     //getteri:
     std::string getNume() const;
@@ -191,7 +191,7 @@ void Client::setVarsta(int varsta){
     ~Rezervare(){
 
     }; //destructor
-    Rezervare& operator=(const Rezervare& ob); //operator de asignare
+    Rezervare& operator=(const Rezervare& ob); //operator de mutare
     friend std::ostream& operator<<(std::ostream& out, const Rezervare& r); //operator de afisare
 
     
@@ -368,7 +368,7 @@ int main()
    }
    int m;
    fin>>m;
-   for(int i=0;i<3;i++){
+   for(int i=0;i<m;i++){
     std::string tipAbonament,dataInceput;
     fin>>tipAbonament>>dataInceput>>nume>>prenume;
     if (tipAbonament=="o_luna"){
