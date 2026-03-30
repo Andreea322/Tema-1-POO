@@ -342,76 +342,66 @@ std::string Rezervare::expirareAbonament(const std::string& tipAbonament,const s
     return "Invalid";
 } // functie care returneaza data finala a abonamentului in functie de tipul acestuia si data de inceput
 int main()
-{  std::ifstream fin("sala.in");
-   int k;
-   fin>>k;
-   Aparat aparate[100];
-   std::string numeAparat, scop;
-   int dificultate;
-   for (int i=0;i<k;i++){
-    fin>>numeAparat>>scop>>dificultate;
-    aparate[i]=Aparat(numeAparat,scop,dificultate);
-   }
-   std::cout<<"Aparatele disponibile:"<<std::endl;
-   for (int i=0;i<k;i++){
-    std::cout<<aparate[i]<<std::endl;
-   }
-   Client clienti[100];
-   Rezervare rezervari[100];
-   int n;
-   fin>>n;
-   std::string nume, prenume, email, numarTelefon;
-   int varsta;
-
-   for(int i=0; i<n;i++){
-    fin>>nume>>prenume>>email>>numarTelefon>>varsta;
-    Client c(nume,prenume, email, numarTelefon,varsta);
-    clienti[i]=c;
+{  Aparat a1("BandaAlergare", "cardio", 1);
+    Aparat a2("BicicletaStatica", "cardio", 1);
+    Aparat a3("Gantere", "forta", 2);
+    std::cout << "Aparatele disponibile:" << std::endl;
+    std::cout << a1 << std::endl << a2 << std::endl << a3 << std::endl << std::endl;
+    Client c1("Popescu", "Ion", "ion@gmail.com", "0711111111", 25);
+    Client c2("Ionescu", "Maria", "maria@gmail.com", "0722222222", 30);
+    Client c3("Georgescu", "Andrei", "andrei@gmail.com", "0733333333", 28);
+    Client c4("Popa", "Elena", "elena@gmail.com", "0744444444", 22);
+    Rezervare r1, r2, r3;
+    r1.setTipAbonament("o_luna");
+    r1.setDataInceput("01.03.2026");
+    r1.setNumeClient("Popescu");
+    r1.setPrenumeClient("Ion");
+    r1.setDataFinal(r1.expirareAbonament("o_luna", "01.03.2026"));
+    r2.setTipAbonament("o_intrare");
+    r2.setDataInceput("05.03.2026");
+    r2.setNumeClient("Ionescu");
+    r2.setPrenumeClient("Maria");
+    r2.setDataFinal(r2.expirareAbonament("o_intrare", "05.03.2026"));
+    r3.setTipAbonament("o_luna");
+    r3.setDataInceput("10.03.2026");
+    r3.setNumeClient("Georgescu");
+    r3.setPrenumeClient("Andrei");
+    r3.setDataFinal(r3.expirareAbonament("o_luna", "10.03.2026"));
+    if (r1.rezervareActiva(c1) || r2.rezervareActiva(c1) || r3.rezervareActiva(c1))
+        std::cout << c1.getNume() << " " << c1.getPrenume() << " are abonament activ."<< std::endl;
+    else
+        std::cout << c1.getNume() << " " << c1.getPrenume() << " nu are abonament activ." << std::endl;
+    if (r1.rezervareActiva(c2) || r2.rezervareActiva(c2) || r3.rezervareActiva(c2))
+        std::cout << c2.getNume() << " " << c2.getPrenume() << " are abonament activ."<< std::endl;
+    else
+        std::cout << c2.getNume() << " " << c2.getPrenume() << " nu are abonament activ." << std::endl;
+    if (r1.rezervareActiva(c3) || r2.rezervareActiva(c3) || r3.rezervareActiva(c3))
+        std::cout << c3.getNume() << " " << c3.getPrenume() << " are abonament activ." << std::endl;
+    else
+        std::cout << c3.getNume() << " " << c3.getPrenume() << " nu are abonament activ." << std::endl;
+    if (r1.rezervareActiva(c4) || r2.rezervareActiva(c4) || r3.rezervareActiva(c4))
+        std::cout << c4.getNume() << " " << c4.getPrenume() << " are abonament activ." << std::endl;
+    else
+        std::cout << c4.getNume() << " " << c4.getPrenume() << " nu are abonament activ." << std::endl;
     
-   }
-   int m;
-   fin>>m;
-   for(int i=0;i<m;i++){
-    std::string tipAbonament,dataInceput;
-    fin>>tipAbonament>>dataInceput>>nume>>prenume;
-    if (tipAbonament=="o_luna"){
-        tipAbonament="o luna";
-    }
-    else{
-        tipAbonament="o intrare";
-    }
-    rezervari[i]=Rezervare();
-    rezervari[i].setTipAbonament(tipAbonament);
-    rezervari[i].setDataInceput(dataInceput);
-    rezervari[i].setNumeClient(nume);
-    rezervari[i].setPrenumeClient(prenume);
-    std::string dataFinala=rezervari[i].expirareAbonament(tipAbonament,dataInceput);
-    rezervari[i].setDataFinal(dataFinala);
-    }
-    for (int i=0;i<5;i++){
-        if(rezervari[0].rezervareActiva(clienti[i])==1 || rezervari[1].rezervareActiva(clienti[i])==1 || rezervari[2].rezervareActiva(clienti[i])==1){
-            std::cout<<clienti[i].getNume()<< " "<<clienti[i].getPrenume()<< " are abonament activ"<<std::endl;
-        } else{
-            std::cout<<clienti[i].getNume()<< " "<<clienti[i].getPrenume()<< " nu are abonament activ"<<std::endl;
-        }
-    }
     std::cout<<"Introduceti numele si prenumele pe care doriti sa-l cautati: ";
     std::string NUME,PRENUME;
     std::cin>>NUME>>PRENUME;
     int a=0;
-    for(int i=0;i<n;i++){
-        if(NUME == clienti[i].getNume() && PRENUME == clienti[i].getPrenume()){
+    
+    if ((NUME == c1.getNume() && PRENUME == c1.getPrenume()) ||
+        (NUME == c2.getNume() && PRENUME == c2.getPrenume()) ||
+        (NUME == c3.getNume() && PRENUME == c3.getPrenume()) ||
+        (NUME == c4.getNume() && PRENUME == c4.getPrenume())){
             a++;
-            break;
-        }
     }
+    
     if(a==0){
         std::cout<<NUME<<" "<<PRENUME<<" nu se afla printre clientii salii de gimnastica.";
     } else{
         std::cout<<NUME<<" "<<PRENUME<<" se afla printre clientii salii de gimnastica.";
     }
-    fin.close();
+    
     return 0;
 
 }
-
