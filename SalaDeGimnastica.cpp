@@ -7,7 +7,6 @@
 
 #include <iostream>
 #include <string>
-#include <fstream>
 class Aparat{
     std::string nume, scop;
     int nivelDificultate;
