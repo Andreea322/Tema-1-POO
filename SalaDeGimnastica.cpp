@@ -154,9 +154,6 @@ Client::Client(const Client& ob){
 }
 
 
-std::string Client::getNume() const{
-    return nume;
-}
 std::string Client::getPrenume() const{
     return prenume;
 }
