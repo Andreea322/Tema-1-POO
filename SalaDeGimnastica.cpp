@@ -392,6 +392,21 @@ int main()
             std::cout<<clienti[i].getNume()<< " "<<clienti[i].getPrenume()<< " nu are abonament activ"<<std::endl;
         }
     }
+    std::cout<<"Introduceti numele si prenumele pe care doriti sa-l cautati: ";
+    std::string NUME,PRENUME;
+    std::cin>>NUME>>PRENUME;
+    int a=0;
+    for(int i=0;i<n;i++){
+        if(NUME == clienti[i].getNume() && PRENUME == clienti[i].getPrenume()){
+            a++;
+            break;
+        }
+    }
+    if(a==0){
+        std::cout<<NUME<<" "<<PRENUME<<" nu se afla printre clientii salii de gimnastica.";
+    } else{
+        std::cout<<NUME<<" "<<PRENUME<<" se afla printre clientii salii de gimnastica.";
+    }
     fin.close();
     return 0;
 
