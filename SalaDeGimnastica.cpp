@@ -83,6 +83,7 @@ void Aparat::setNivelDificultate(int nivelDificultate){
 class Client{
     std::string nume, prenume, email, numarTelefon;
     int varsta;
+    static int totalClienti;
     public:
     Client(); //constructor default
     Client(const std::string& nume,const std::string& prenume, const std::string& email,const std::string& numarTelefon, const int& varsta); //constructor cu parametrii
@@ -93,11 +94,12 @@ class Client{
     Client& operator=(const Client& ob); //operator de mutare
     friend std::ostream& operator<<(std::ostream& out, const Client& c); //operator de afisare
     //getteri:
-    std::string getNume() const;
+    inline std::string getNume() const { return nume; }
     std::string getPrenume() const;
     std::string getEmail() const;
     std::string getNumarTelefon() const;
     int getVarsta() const;
+    static int getTotalClienti() { return totalClienti; }
     //setteri:
     void setNume(const std::string& nume);
     void setPrenume(const std::string& prenume);
@@ -106,16 +108,19 @@ class Client{
     void setVarsta(int varsta);
     
     
+    
 
 };
 
 // definirea constructorilor si metodelor clasei:
+int Client::totalClienti = 0;
 Client::Client(){
     nume="";
     prenume="";
     email="";
     numarTelefon="";
     varsta=0;
+    totalClienti++;
 }
 Client::Client(const std::string& nume,const std::string& prenume, const std::string& email,const std::string& numarTelefon, const int& varsta){
     this->nume=nume;
@@ -123,6 +128,7 @@ Client::Client(const std::string& nume,const std::string& prenume, const std::st
     this->email=email;
     this->numarTelefon=numarTelefon;
     this->varsta=varsta;
+    totalClienti++;
 }
 Client::Client(const Client& ob){
     nume=ob.nume;
