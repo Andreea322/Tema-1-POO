@@ -7,7 +7,8 @@
 
 3.Rezervare-cu parametrii:tipAbonament,dataInceput,dataFinal,numeClient,prenumeClient.
 
-  Datele de intrare sunt citite din fisierul "sala.in".Pe primul rând din fișierul “sala.in” se află numărul k, care reprezintă câte aparate sunt disponibile în sală, urmat de k linii cu numele, scopul și nivelul de dificultate al fiecărui aparat. După aceea se află numărul n, care indică numărul de clienți, urmat de n linii cu informațiile fiecărui client (nume, prenume, email, număr de telefon și vârstă). La final se citește numărul m, ce reprezintă numărul de rezervări, urmat de m linii cu detalii despre fiecare abonament(tip, data de început, numele si prenumele clientului).
+ Datele sunt introduse în funcția main. Se definesc 3 aparate: bandă de alergare, bicicletă statică și gantere, fiecare cu scop și nivel de dificultate. Se creează 4 clienți: Popescu Ion, Ionescu Maria, Georgescu Andrei și Popa Elena, cu datele lor.
+De asemenea, sunt create 3 rezervări: două abonamente de tip „o lună” și unul de tip „o intrare”, fiecare având data de început și fiind asociata unui client. La final, se introduce de la tastatură un nume și prenume pentru a verifica dacă persoana există în lista de clienți.
   
   Cerinta:
 
